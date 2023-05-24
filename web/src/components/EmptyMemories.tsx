@@ -4,8 +4,7 @@ export function EmptyMemories() {
       <p className="text-center leading-relaxed w-[360px]">
         Você ainda não registrou nenhuma lembrança, começe a{" "}
         <a
-          href="https://github.com/Wallysson"
-          target="_blank"
+          href="/memories/new"
           rel="noreferrer"
           className="underline hover:text-gray-50"
         >
