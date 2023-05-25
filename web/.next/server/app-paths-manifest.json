@@ -1,4 +1,6 @@
 {
   "/page": "app/page.js",
-  "/memories/new/page": "app/memories/new/page.js"
+  "/icon.png/route": "app/icon.png/route.js",
+  "/memories/new/page": "app/memories/new/page.js",
+  "/memories/details/[id]/page": "app/memories/details/[id]/page.js"
 }

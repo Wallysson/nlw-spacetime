@@ -37,7 +37,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="p-8 flex flex-col gap-10 ">
+    <div className="px-8 py-16 flex flex-col gap-10 ">
       {memories.map((memory) => {
         return (
           <div key={memory.id} className="space-y-4">
@@ -51,11 +51,11 @@ export default async function Home() {
               alt=""
               className="w-full aspect-video object-cover rounded-lg"
             />
-            <p className="text-lg leading-relaxed text-gray-100">
+            <p className="text-base md:text-lg leading-relaxed text-gray-100">
               {memory.resume}
             </p>
             <Link
-              href={`/memories/${memory.id}`}
+              href={`/memories/details/${memory.id}`}
               className="flex items-center gap-2 text-sm text-gray-200 hover:text-gray-100"
             >
               Ler mais
