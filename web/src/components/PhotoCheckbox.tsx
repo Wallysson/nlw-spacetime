@@ -3,7 +3,11 @@
 import { Camera } from "lucide-react";
 import { MediaPicker } from "./MediaPicker";
 
-export function PhotoCheckbox() {
+interface Props {
+  isPublic: boolean;
+}
+
+export function PhotoCheckbox({isPublic}: Props) {
   return (
     <form
       action=""
@@ -27,7 +31,8 @@ export function PhotoCheckbox() {
             type="checkbox"
             name="isPublic"
             id="isPublic"
-            value="true"
+            // value={isPublic ? "true" : "false"}
+            checked={isPublic}
             accept="image/*"
             className="h-4 w-4 rounded border-gray-400 bg-gray-700 text-purple-500"
           />

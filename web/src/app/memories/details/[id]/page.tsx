@@ -2,9 +2,11 @@ import { cookies } from "next/headers";
 import { api } from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, TwitterIcon } from "lucide-react";
 import { PhotoCheckbox } from "@/components/PhotoCheckbox";
 import dayjs from "dayjs";
+import { TwitterShare } from "@/components/TwitterShare";
+import { FacebookShare } from "@/components/FacebookShare";
 
 interface Params {
   params: {
@@ -18,6 +20,7 @@ interface MemoryDetails {
   coverUrl: string;
   content: string;
   createdAt: string;
+  isPublic: boolean;
 }
 
 export default async function DetailMemory({ params }: Params) {
@@ -50,7 +53,7 @@ export default async function DetailMemory({ params }: Params) {
         voltar à timeline
       </Link>
 
-      <PhotoCheckbox />
+      <PhotoCheckbox isPublic={memoryDetail.isPublic}/>
 
       <div key={memoryDetail.id} className="space-y-4">
         <time className="text-gray-100 text-sm gap-2 flex items-center -ml-8 before:h-px before:w-5 before:bg-gray-50">
@@ -67,6 +70,13 @@ export default async function DetailMemory({ params }: Params) {
         <p className="text-base md:text-lg leading-relaxed text-gray-100">
           {memoryDetail.content}
         </p>
+
+        {memoryDetail.isPublic && (
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            <TwitterShare title={memoryDetail.content} />
+            <FacebookShare />
+          </div>
+        )}
       </div>
     </div>
   );
